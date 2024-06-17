@@ -1,8 +1,8 @@
 
 #imports the connection to the database
 from database.connection import get_db_connection 
-from subject import Subject
-from invigilator import Invigilator
+from models.subject import Subject
+from models.invigilator import Invigilator
 
 
 #creates a class called Candidates with attributes name, national_id, e_mail, subject and invigilator
