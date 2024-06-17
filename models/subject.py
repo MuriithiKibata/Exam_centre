@@ -37,3 +37,14 @@ class Subject:
         subjects_rows = cursor.fetchall()
         conn.close()
         return [cls(id=row[0], name=row[1], room=row[2]) for row in subjects_rows]
+
+    @classmethod
+    def get_by_id(cls, id):
+        conn = get_db_connection()
+        cursor = conn.cursor()
+        cursor.execute('SELECT * FROM subjects WHERE id = ?', (id,))
+        row = cursor.fetchone()
+        conn.close()
+        if row:
+            return cls(id=row[0], name=row[1], room=row[2])
+        return None
